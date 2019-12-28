@@ -1,0 +1,66 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/cache@preview
+      id: cache
+      with:
+        path: ~/local/rubies
+        key: ruby-2.6.5
+        restore-keys: |
+          ruby-2.6.5
+    - uses: clupprich/ruby-build-action@master
+      id: ruby
+      with:
+        ruby-version: 2.6.5
+        cache-available: ${{ steps.cache.outputs.cache-hit == 'true' }}
+
+    - name: install bundler
+      run: gem install bundler
+
+    - name: Install dependent libralies
+      run: sudo apt-get install libpq-dev
+
+    - name: Cache gems
+      uses: actions/cache@preview
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Bundle install
+      run: bundle install --path vendor/bundle --jobs 4 --retry 3
+
+    - name: Setup Database
+      run: |
+        cp config/database.yml.github-actions config/database.yml
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+
+    - name: Run rspec
+      run: bundle exec rspec  --require rails_helper
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
