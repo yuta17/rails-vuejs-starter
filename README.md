@@ -1,24 +1,22 @@
-# README
+# Setting up Rails with Vue.js, Webpack, Turbolinks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A quick and easy way to setup Rails + Vue.js + Webpack + Turbolinks.
 
-Things you may want to cover:
+- Ruby version: 2.6.5
+- Key Dependencies: Rails 6, Vue.js 2, Webpack 4
+- System dependencies: Node.js, Yarn, PostgreSQL
 
-* Ruby version
+## Setup development environment:
 
-* System dependencies
+```
+cd ./rails-vuejs-starter
 
-* Configuration
+rails db:create
+bundle install
+yarn install
+yarn run watch
+rails s
+open "http://localhost:3000"
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![helloworld](https://user-images.githubusercontent.com/8072432/71537822-ef828c00-2964-11ea-8fd9-4ed9d9c49d83.png)
