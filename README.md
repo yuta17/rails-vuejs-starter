@@ -11,11 +11,8 @@ A quick and easy way to setup Rails + Vue.js + Webpack + Turbolinks + Rspec + Je
 ```
 cd ./rails-vuejs-starter
 
-rails db:create
-bundle install
-yarn install
+bin/setup
 yarn run watch
-rails s
 open "http://localhost:3000"
 ```
 
