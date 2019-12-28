@@ -22,7 +22,14 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1",
+    "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "dev": "webpack --config ./config/webpack/development.js",
+    "watch": "webpack-dev-server --config ./config/webpack/development.js",
+    "stg": "webpack --config ./config/webpack/staging.js",
+    "build": "webpack --config ./config/webpack/production.js"
   },
   "version": "0.1.0"
 }
