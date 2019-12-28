@@ -1,6 +1,6 @@
 # Setting up Rails with Vue.js, Webpack, Turbolinks
 
-A quick and easy way to setup Rails + Rspec + Vue.js + Webpack + Turbolinks.
+A quick and easy way to setup Rails + Vue.js + Webpack + Turbolinks + Rspec + Jest.
 
 - Ruby version: 2.6.5
 - Key Dependencies: Rails 6, Vue.js 2, Webpack 4

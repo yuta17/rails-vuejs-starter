@@ -7,9 +7,13 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
+    "jest": "^24.9.0",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
     "prettier-webpack-plugin": "^1.2.0",
@@ -17,6 +21,7 @@
     "turbolinks": "^5.2.0",
     "url-loader": "^3.0.0",
     "vue": "^2.6.11",
+    "vue-jest": "^3.0.5",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
@@ -29,7 +34,8 @@
     "dev": "webpack --config ./config/webpack/development.js",
     "watch": "webpack-dev-server --config ./config/webpack/development.js",
     "stg": "webpack --config ./config/webpack/staging.js",
-    "build": "webpack --config ./config/webpack/production.js"
+    "build": "webpack --config ./config/webpack/production.js",
+    "test": "jest --config ./frontend/test/jest.conf.json"
   },
   "version": "0.1.0"
 }

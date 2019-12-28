@@ -1,0 +1,19 @@
+{
+  "roots": [
+    "./"
+  ],
+  "moduleNameMapper": {
+    "^@components/(.*)$": "<rootDir>../javascripts/components/$1",
+    "^@fixtures/(.*)$": "<rootDir>/fixtures/$1",
+    "\\.(css|less)$": "identity-obj-proxy"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "vue"
+  ],
+  "transform": {
+    "^.+\\.js$": "<rootDir>../../node_modules/babel-jest",
+    "^.+\\.vue$": "<rootDir>../../node_modules/vue-jest"
+  }
+}
