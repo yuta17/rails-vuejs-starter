@@ -1,5 +1,5 @@
 {
-  "name": "rails_vuejs_ssr_starter",
+  "name": "rails_vuejs_starter",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.7.7",
